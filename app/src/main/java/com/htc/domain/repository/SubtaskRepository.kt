@@ -12,7 +12,7 @@ interface SubtaskRepository {
     fun getSubtasks(taskId: Int): List<Subtask>
 
     /**
-     * Устанавливает статус [status] у подзадачи с идентификатором [id].
+     * Устанавливает завершённость [status] у подзадачи с идентификатором [id].
      */
     fun setStatus(id: Int, status: Boolean)
 

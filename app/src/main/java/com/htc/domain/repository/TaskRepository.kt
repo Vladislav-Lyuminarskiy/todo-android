@@ -12,7 +12,7 @@ interface TaskRepository {
     fun getTasks(): List<Task>
 
     /**
-     * Устанавливает статус [status] у задачи с идентификатором [id].
+     * Устанавливает завершённость [status] у задачи с идентификатором [id].
      */
     fun setStatus(id: Int, status: Boolean)
 
