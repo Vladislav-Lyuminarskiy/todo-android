@@ -1,4 +1,5 @@
 package com.htc.presentation.taskdetails
 
-class TaskDetailsViewModel {
-}
+import androidx.lifecycle.ViewModel
+
+class TaskDetailsViewModel: ViewModel()
