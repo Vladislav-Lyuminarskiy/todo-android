@@ -5,6 +5,9 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
 
+/**
+ * Представление подзадачи для СУБД.
+ */
 @Entity(
     tableName = "subtasks",
     foreignKeys = [ForeignKey(

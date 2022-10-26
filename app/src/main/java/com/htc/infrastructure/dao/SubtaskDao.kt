@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.htc.domain.entity.Subtask
 import com.htc.infrastructure.entity.SubtaskEntity
 
 @Dao
@@ -13,7 +12,7 @@ interface SubtaskDao {
      * Возвращает список всех подзадач у задачи с идентификатором [taskId].
      */
     @Query("SELECT * FROM subtasks WHERE taskId=:taskId")
-    fun getSubtasks(taskId: Int): List<Subtask>
+    fun getSubtasks(taskId: Int): List<SubtaskEntity>
 
     /**
      * Устанавливает завершённость [status] у подзадачи с идентификатором [id].

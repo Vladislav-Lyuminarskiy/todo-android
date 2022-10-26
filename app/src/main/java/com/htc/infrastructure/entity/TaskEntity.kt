@@ -5,6 +5,9 @@ import androidx.room.PrimaryKey
 import androidx.room.Relation
 import com.htc.domain.entity.Subtask
 
+/**
+ * Представление задачи для СУБД.
+ */
 @Entity(tableName = "tasks")
 data class TaskEntity(
     /**
