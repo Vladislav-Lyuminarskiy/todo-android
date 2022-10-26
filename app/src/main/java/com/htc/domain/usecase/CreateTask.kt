@@ -12,7 +12,7 @@ class CreateTask(
     /**
      * Создаёт задачу с описанием [description].
      */
-    fun execute(description: String) = taskRepository.createTask(
+    operator fun invoke(description: String) = taskRepository.createTask(
         Task(
             id = 0,
             description = description,

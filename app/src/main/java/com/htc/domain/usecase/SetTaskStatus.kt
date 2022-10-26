@@ -11,5 +11,5 @@ class SetTaskStatus(
     /**
      * Устанавливает завершённость [status] у задачи с идентификатором [id].
      */
-    fun execute(id: Int, status: Boolean) = taskRepository.setStatus(id, status)
+    operator fun invoke(id: Int, status: Boolean) = taskRepository.setStatus(id, status)
 }

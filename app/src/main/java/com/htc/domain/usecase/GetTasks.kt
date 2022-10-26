@@ -12,5 +12,5 @@ class GetTasks(
     /**
      * Возвращает список всех задач.
      */
-    fun execute(): List<Task> = taskRepository.getTasks()
+    operator fun invoke(): List<Task> = taskRepository.getTasks()
 }

@@ -11,5 +11,5 @@ class RemoveFinishedTasks(
     /**
      * Удаляет все завершённые задачи.
      */
-    fun execute() = taskRepository.removeFinishedTasks()
+    operator fun invoke() = taskRepository.removeFinishedTasks()
 }
