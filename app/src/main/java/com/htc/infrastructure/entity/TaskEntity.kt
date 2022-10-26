@@ -30,6 +30,7 @@ data class TaskEntity(
         parentColumn = "id",
         entityColumn = "taskId"
     )
+    // TODO: Исправить "Entities cannot have relations".
     val subtasks: List<SubtaskEntity>,
 ) : EntityBase<Task> {
     /**
