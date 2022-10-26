@@ -31,7 +31,7 @@ data class TaskEntity(
         entityColumn = "taskId"
     )
     val subtasks: List<SubtaskEntity>,
-) {
+) : EntityBase<Task> {
     /**
      * Создаёт представление задачи для СУБД на основе задачи доменного слоя [task].
      */
@@ -44,7 +44,7 @@ data class TaskEntity(
     /**
      * Преобразует представление задачи для СУБД в задачу доменного слоя.
      */
-    fun toDomain() = Task(
+    override fun toDomain() = Task(
         id = id,
         description = description,
         status = status,

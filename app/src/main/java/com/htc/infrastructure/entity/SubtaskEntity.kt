@@ -36,7 +36,7 @@ data class SubtaskEntity(
      * Завершённость подзадачи.
      */
     val status: Boolean,
-) {
+) : EntityBase<Subtask> {
     /**
      * Создаёт представление подзадачи для СУБД на основе подзадачи доменного слоя [subtask]
      * для родительской задачи с идентификатором [taskId].
@@ -51,7 +51,7 @@ data class SubtaskEntity(
     /**
      * Преобразует представление подзадачи для СУБД в подзадачу доменного слоя.
      */
-    fun toDomain() = Subtask(
+    override fun toDomain() = Subtask(
         id = id,
         description = description,
         status = status,
