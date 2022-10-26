@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import androidx.room.Transaction
 import com.htc.infrastructure.entity.TaskEntity
 
 @Dao
@@ -11,6 +12,7 @@ interface TaskDao {
     /**
      * Возвращает список всех задач.
      */
+    @Transaction
     @Query("SELECT * FROM tasks")
     fun getTasks(): List<TaskEntity>
 

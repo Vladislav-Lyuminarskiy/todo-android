@@ -1,5 +1,6 @@
 package com.htc.infrastructure.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
@@ -27,6 +28,7 @@ data class SubtaskEntity(
     /**
      * Идентификатор родительской задачи.
      */
+    @ColumnInfo(index = true)
     val taskId: Int,
     /**
      * Описание подзадачи.
