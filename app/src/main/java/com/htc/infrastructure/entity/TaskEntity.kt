@@ -10,7 +10,8 @@ data class TaskEntity(
     /**
      * Идентификатор задачи.
      */
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     /**
      * Описание задачи.
      */

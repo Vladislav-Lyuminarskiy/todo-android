@@ -18,7 +18,8 @@ data class SubtaskEntity(
     /**
      * Идентификатор подзадачи.
      */
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     /**
      * Идентификатор родительской задачи.
      */
