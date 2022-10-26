@@ -3,7 +3,7 @@ package com.htc.infrastructure.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
-import com.htc.domain.entity.Subtask
+import com.htc.domain.entity.Task
 
 /**
  * Представление задачи для СУБД.
@@ -30,5 +30,24 @@ data class TaskEntity(
         parentColumn = "id",
         entityColumn = "taskId"
     )
-    val subtasks: List<Subtask>,
-)
+    val subtasks: List<SubtaskEntity>,
+) {
+    /**
+     * Создаёт представление задачи для СУБД на основе задачи доменного слоя [task].
+     */
+    constructor(task: Task) : this(
+        id = task.id,
+        description = task.description,
+        status = task.status,
+        subtasks = task.subtasks.map { SubtaskEntity(task.id, it) })
+
+    /**
+     * Преобразует представление задачи для СУБД в задачу доменного слоя.
+     */
+    fun toDomain() = Task(
+        id = id,
+        description = description,
+        status = status,
+        subtasks = subtasks.map { it.toDomain() }
+    )
+}
