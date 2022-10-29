@@ -43,8 +43,13 @@ dependencies {
     // Room
     def room_version = "2.4.3"
     implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava3:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    // RxJava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
