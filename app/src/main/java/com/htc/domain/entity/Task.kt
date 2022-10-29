@@ -1,5 +1,7 @@
 package com.htc.domain.entity
 
+import io.reactivex.rxjava3.core.Flowable
+
 /**
  * Задача.
  */
@@ -19,5 +21,5 @@ data class Task(
     /**
      * Подзадачи.
      */
-    val subtasks: List<Subtask>,
+    val subtasks: Flowable<List<Subtask>>,
 )

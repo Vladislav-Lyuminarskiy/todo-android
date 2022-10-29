@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import androidx.room.Transaction
 import com.htc.infrastructure.entity.TaskEntity
+import io.reactivex.rxjava3.core.Flowable
 
 @Dao
 interface TaskDao {
@@ -14,7 +15,7 @@ interface TaskDao {
      */
     @Transaction
     @Query("SELECT * FROM tasks")
-    fun getTasks(): List<TaskEntity>
+    fun getTasks(): Flowable<List<TaskEntity>>
 
     /**
      * Устанавливает завершённость [status] у задачи с идентификатором [id].

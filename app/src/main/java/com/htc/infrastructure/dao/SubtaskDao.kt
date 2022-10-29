@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.htc.infrastructure.entity.SubtaskEntity
+import io.reactivex.rxjava3.core.Flowable
 
 @Dao
 interface SubtaskDao {
@@ -12,7 +13,7 @@ interface SubtaskDao {
      * Возвращает список всех подзадач у задачи с идентификатором [taskId].
      */
     @Query("SELECT * FROM subtasks WHERE taskId=:taskId")
-    fun getSubtasks(taskId: Int): List<SubtaskEntity>
+    fun getSubtasks(taskId: Int): Flowable<List<SubtaskEntity>>
 
     /**
      * Устанавливает завершённость [status] у подзадачи с идентификатором [id].

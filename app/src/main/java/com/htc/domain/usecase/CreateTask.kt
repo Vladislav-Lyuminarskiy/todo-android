@@ -2,6 +2,7 @@ package com.htc.domain.usecase
 
 import com.htc.domain.entity.Task
 import com.htc.domain.repository.TaskRepository
+import io.reactivex.rxjava3.core.Flowable
 
 /**
  * Сценарий создания задачи.
@@ -17,7 +18,7 @@ class CreateTask(
             id = 0,
             description = description,
             status = false,
-            subtasks = emptyList()
+            subtasks = Flowable.empty()
         )
     )
 }
