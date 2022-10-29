@@ -9,7 +9,7 @@ import com.htc.infrastructure.entity.SubtaskEntity
  * Реализация репозитория для работы с подзадачами.
  */
 class SubtaskRepositoryImpl constructor(
-    private val subtaskDao: SubtaskDao
+    private val subtaskDao: SubtaskDao,
 ) : SubtaskRepository {
     override fun getSubtasks(taskId: Int): List<Subtask> = subtaskDao
         .getSubtasks(taskId)

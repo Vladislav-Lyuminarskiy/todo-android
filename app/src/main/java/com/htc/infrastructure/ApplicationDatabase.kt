@@ -12,7 +12,8 @@ import com.htc.infrastructure.entity.TaskEntity
         TaskEntity::class,
         SubtaskEntity::class,
     ],
-    version = 1
+    version = 1,
+    exportSchema = false,
 )
 abstract class ApplicationDatabase: RoomDatabase() {
     abstract fun taskDao(): TaskDao
