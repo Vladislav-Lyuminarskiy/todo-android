@@ -25,11 +25,12 @@ class TaskListAdapter(
         val finishedSubtasks = task.subtasks
             .map { it.filter { it.status } }
             .count()
+            .blockingGet()
 
         with(holder) {
             status.isChecked = task.status
             description.text = task.description
-            subtaskCount.text = "$finishedSubtasks/${task.subtasks.count()}"
+            subtaskCount.text = "$finishedSubtasks из ${task.subtasks.count().blockingGet()}"
         }
     }
 

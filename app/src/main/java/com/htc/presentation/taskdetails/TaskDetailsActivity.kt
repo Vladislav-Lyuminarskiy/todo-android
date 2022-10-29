@@ -1,7 +1,7 @@
 package com.htc.presentation.taskdetails
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.htc.R
 
 class TaskDetailsActivity : AppCompatActivity() {
