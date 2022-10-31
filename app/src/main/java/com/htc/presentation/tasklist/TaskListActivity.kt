@@ -44,11 +44,10 @@ class TaskListActivity : AppCompatActivity() {
             val tasks: MutableList<Task> = mutableListOf()
             for (i in 1..20) {
                 val subtasks: MutableList<Subtask> = mutableListOf()
-                val subtaskCount = Random.nextInt(4)
-                for (j in 1..subtaskCount) {
+                for (j in 1..20) {
                     subtasks.add(Subtask(
                         id = i + j,
-                        description = "Subtask $i",
+                        description = "Subtask $j",
                         status = Random.nextBoolean()
                     ))
                 }
@@ -57,7 +56,7 @@ class TaskListActivity : AppCompatActivity() {
                     id = i,
                     description = "Task $i",
                     status = Random.nextBoolean(),
-                    Flowable.empty()
+                    Flowable.just(subtasks)
                 ))
             }
 

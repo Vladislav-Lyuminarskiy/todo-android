@@ -36,13 +36,12 @@ class TaskListAdapter(
 
         fun bind(task: Task, listener: OnItemClickListener) {
             val finishedSubtasks = task.subtasks
-                .map { it.filter { it.status } }
-                .count()
-                .blockingGet()
+                .map { it.count { it.status } }
+                .blockingSingle()
 
             status.isChecked = task.status
             description.text = task.description
-            subtaskCount.text = "$finishedSubtasks из ${task.subtasks.count().blockingGet()}"
+            subtaskCount.text = "$finishedSubtasks из ${task.subtasks.toList().blockingGet()[0].size}"
 
             itemView.setOnClickListener { listener(task) }
         }

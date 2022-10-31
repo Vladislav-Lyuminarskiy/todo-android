@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <CheckBox
-        android:id="@+id/task_status"
+        android:id="@+id/subtask_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -15,12 +15,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/task_description"
+        android:id="@+id/subtask_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/task_status"
+        app:layout_constraintStart_toEndOf="@+id/subtask_status"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Описание подзадачи" />
 </androidx.constraintlayout.widget.ConstraintLayout>
