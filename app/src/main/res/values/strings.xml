@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Задачи</string>
     <string name="description_button_add_task">Добавить задачу</string>
+    <string name="description_button_add_subtask">Добавить подзадачу</string>
     <string name="toolbar_task_list">Задачи</string>
 </resources>

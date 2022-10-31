@@ -22,6 +22,7 @@
         </activity>
         <activity
             android:name=".presentation.taskdetails.TaskDetailsActivity"
+            android:theme="@style/Theme.Todo.NoActionBar"
             android:exported="false">
         </activity>
     </application>
