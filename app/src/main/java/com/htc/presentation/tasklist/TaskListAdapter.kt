@@ -18,7 +18,7 @@ class TaskListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.layout_item_task, null)
+            .inflate(R.layout.layout_item_task, parent, false)
 
         return ViewHolder(view)
     }
