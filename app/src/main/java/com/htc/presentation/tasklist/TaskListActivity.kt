@@ -7,15 +7,36 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.htc.R
+import com.htc.domain.entity.Subtask
 import com.htc.domain.entity.Task
 import io.reactivex.rxjava3.core.Flowable
+import kotlin.random.Random
 
 class TaskListActivity : AppCompatActivity() {
-    // TODO: Заменить тестовые данные на реальные.
-    val tasks: List<Task> = listOf(
-        Task(1, "Task 1", false, Flowable.empty()),
-        Task(2, "Task 2", true, Flowable.empty()),
-    )
+    val tasks: List<Task> by lazy {
+        // TODO: Заменить фейковые данные на реальные.
+        val tasks: MutableList<Task> = mutableListOf()
+        for (i in 1..20) {
+            val subtasks: MutableList<Subtask> = mutableListOf()
+            val subtaskCount = Random.nextInt(4)
+            for (j in 1..subtaskCount) {
+                subtasks.add(Subtask(
+                    id = i + j,
+                    description = "Subtask $i",
+                    status = Random.nextBoolean()
+                ))
+            }
+
+            tasks.add(Task(
+                id = i,
+                description = "Task $i",
+                status = Random.nextBoolean(),
+                Flowable.empty()
+            ))
+        }
+
+        tasks
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
