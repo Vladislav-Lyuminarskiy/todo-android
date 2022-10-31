@@ -41,4 +41,3 @@
         android:contentDescription="@string/description_button_add_task"
         app:srcCompat="@drawable/ic_add" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
