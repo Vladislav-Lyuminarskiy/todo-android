@@ -16,8 +16,9 @@ class SubtaskRepositoryImpl constructor(
         .getSubtasks(taskId)
         .map { it.map { it.toDomain() } }
 
-    override fun setStatus(id: Int, status: Boolean) = subtaskDao.setStatus(id, status)
+    override fun setStatus(id: Int, status: Boolean) = subtaskDao
+        .setStatus(id, status)
 
-    override fun createSubtask(taskId: Int, subtask: Subtask) =
-        subtaskDao.createSubtask(SubtaskEntity(taskId, subtask))
+    override fun createSubtask(taskId: Int, subtask: Subtask) = subtaskDao
+        .createSubtask(SubtaskEntity(taskId, subtask))
 }

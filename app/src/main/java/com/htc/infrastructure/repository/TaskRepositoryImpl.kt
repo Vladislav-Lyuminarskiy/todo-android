@@ -16,22 +16,23 @@ class TaskRepositoryImpl constructor(
 ) : TaskRepository {
     override fun getTasks(): Flowable<List<Task>> = taskDao
         .getTasks()
-        .map { list ->
-            list.map {
-                Task(
-                    id = it.id,
-                    description = it.description,
-                    status = it.status,
-                    subtasks = subtaskDao
-                        .getSubtasks(it.id)
-                        .map { it.map { it.toDomain() } }
-                )
-            }
-        }
+        .map { list -> list.map { toDomain(it) } }
 
-    override fun setStatus(id: Int, status: Boolean) = taskDao.setStatus(id, status)
+    override fun setStatus(id: Int, status: Boolean) = taskDao
+        .setStatus(id, status)
 
-    override fun createTask(task: Task) = taskDao.createTask(TaskEntity(task))
+    override fun createTask(task: Task) = taskDao
+        .createTask(TaskEntity(task))
 
-    override fun removeFinishedTasks() = taskDao.removeFinishedTasks()
+    override fun removeFinishedTasks() = taskDao
+        .removeFinishedTasks()
+
+    private fun toDomain(entity: TaskEntity): Task = Task(
+        id = entity.id,
+        description = entity.description,
+        status = entity.status,
+        subtasks = subtaskDao
+            .getSubtasks(entity.id)
+            .map { it.map { it.toDomain() } }
+    )
 }
