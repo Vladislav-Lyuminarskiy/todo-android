@@ -11,20 +11,25 @@ import com.htc.domain.entity.Task
 import io.reactivex.rxjava3.core.Flowable
 
 class TaskListActivity : AppCompatActivity() {
+    // TODO: Заменить тестовые данные на реальные.
+    val tasks: List<Task> = listOf(
+        Task(1, "Task 1", false, Flowable.empty()),
+        Task(2, "Task 2", true, Flowable.empty()),
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_list)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = TaskListAdapter(listOf(
-            Task(1, "Task 1", false, Flowable.empty()),
-            Task(2, "Task 2", true, Flowable.empty()),
-        ))
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = TaskListAdapter(tasks) {
+            Toast.makeText(this, it.description, Toast.LENGTH_SHORT).show()
+        }
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-            Toast.makeText(this, "Hello, world!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "FAB was clicked", Toast.LENGTH_SHORT).show()
         }
     }
 }
